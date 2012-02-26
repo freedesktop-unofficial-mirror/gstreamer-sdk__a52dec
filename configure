@@ -9640,7 +9640,7 @@ _ACEOF
 
 
 
-LIBA52_CFLAGS="$LIBA52_CFLAGS -prefer-non-pic"
+LIBA52_CFLAGS="$LIBA52_CFLAGS $pic_flag"
 
 # Check whether --enable-double or --disable-double was given.
 if test "${enable_double+set}" = set; then
