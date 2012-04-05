@@ -30,6 +30,15 @@ if test x"$GCC" = x"yes"; then
     OPT_CFLAGS="$CFLAGS -fomit-frame-pointer"
     AC_TRY_CFLAGS([$OPT_CFLAGS],[CFLAGS=$OPT_CFLAGS])
 
+    case "$host" in
+    *-apple-darwin*)
+	case "$host" in
+	i?86-* ) LIBA52_LDFLAGS="-Wl, -m32";;
+	x86_64-*) LIBA52_LDFLAGS="-Wl, -m64";;
+	esac
+    esac
+    AC_SUBST(LIBA52_LDFLAGS)
+
     dnl arch-specific flags
     case "$host" in
     i?86-* | k?-*)
